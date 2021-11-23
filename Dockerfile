@@ -1,7 +1,7 @@
-FROM maven:3-alpine
+FROM openjdk:11
 
-RUN mvn clean install
+ADD target/jenkins-pipeline.jar jenkins-pipeline.jar 
 
 EXPOSE 8090
 
-ENTRYPOINT [ "java", "-jar", "jenkins-pipeline/target/jenkins-pipeline.jar"]
+ENTRYPOINT ["java", "-jar", "jenkins-pipeline.jar"]
